@@ -8,6 +8,6 @@ public class DummyDic {
     public static void main(String[] args) {
         DummyDic dummyDic = new DummyDic();
         String word = dummyDic.engToRus("mother");
-        System.out.println(word);;
+        System.out.println(word);
     }
 }
