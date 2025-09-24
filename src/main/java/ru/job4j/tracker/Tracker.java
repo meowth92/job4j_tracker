@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-import java.lang.reflect.Array;
+
 import java.util.Arrays;
 
 public class Tracker {
@@ -15,9 +15,7 @@ public class Tracker {
     }
 
     public Item findById(int id) {
-        /* Находим индекс */
         int index = indexOf(id);
-        /* Если индекс найден возвращаем item, иначе null */
         return index != -1 ? items[index] : null;
     }
 
