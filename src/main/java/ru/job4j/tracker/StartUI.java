@@ -6,7 +6,7 @@ public class StartUI {
         boolean run = true;
         while (run) {
             showMenu();
-            int select = input.askInt("Выбрать: ");
+            int select = input.askInt("Р’С‹Р±СЂР°С‚СЊ: ");
             if (select == 0) {
                 createItem(input, tracker);
             } else if (select == 1) {
@@ -27,11 +27,11 @@ public class StartUI {
 
     private void showMenu() {
         String[] menu = {
-                "Добавить новую заявку", "Показать все заявки", "Изменить заявку",
-                "Удалить заявку", "Показать заявку по id", "Показать заявки по имени",
-                "Завершить программу"
+                "Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІСѓСЋ Р·Р°СЏРІРєСѓ", "РџРѕРєР°Р·Р°С‚СЊ РІСЃРµ Р·Р°СЏРІРєРё", "РР·РјРµРЅРёС‚СЊ Р·Р°СЏРІРєСѓ",
+                "РЈРґР°Р»РёС‚СЊ Р·Р°СЏРІРєСѓ", "РџРѕРєР°Р·Р°С‚СЊ Р·Р°СЏРІРєСѓ РїРѕ id", "РџРѕРєР°Р·Р°С‚СЊ Р·Р°СЏРІРєРё РїРѕ РёРјРµРЅРё",
+                "Р—Р°РІРµСЂС€РёС‚СЊ РїСЂРѕРіСЂР°РјРјСѓ"
         };
-        System.out.println("Меню:");
+        System.out.println("РњРµРЅСЋ:");
         for (int i = 0; i < menu.length; i++) {
             System.out.println(i + ". " + menu[i]);
         }
@@ -44,67 +44,67 @@ public class StartUI {
     }
 
     public static void findItemByName(Input input, Tracker tracker) {
-        System.out.println("=== Вывод заявок по имени ===");
-        String name = input.askStr("Введите имя: ");
+        System.out.println("=== Р’С‹РІРѕРґ Р·Р°СЏРІРѕРє РїРѕ РёРјРµРЅРё ===");
+        String name = input.askStr("Р’РІРµРґРёС‚Рµ РёРјСЏ: ");
         Item[] items = tracker.findByName(name);
         if (items.length > 0) {
             for (Item item : items) {
                 System.out.println(item);
             }
         } else {
-            System.out.println("Заявки с именем: " + name + " не найдены.");
+            System.out.println("Р—Р°СЏРІРєРё СЃ РёРјРµРЅРµРј: " + name + " РЅРµ РЅР°Р№РґРµРЅС‹.");
         }
     }
 
     public static void findItemById(Input input, Tracker tracker) {
-        System.out.println("=== Вывод заявки по id ===");
-        int id = input.askInt("Введите id: ");
+        System.out.println("=== Р’С‹РІРѕРґ Р·Р°СЏРІРєРё РїРѕ id ===");
+        int id = input.askInt("Р’РІРµРґРёС‚Рµ id: ");
         Item item = tracker.findById(id);
         if (item != null) {
             System.out.println(item);
         } else {
-            System.out.println("Заявка с введенным id: " + id + " не найдена.");
+            System.out.println("Р—Р°СЏРІРєР° СЃ РІРІРµРґРµРЅРЅС‹Рј id: " + id + " РЅРµ РЅР°Р№РґРµРЅР°.");
         }
     }
 
     public static void deleteItem(Input input, Tracker tracker) {
-        System.out.println("=== Удаление заявки ===");
-        int id = input.askInt("Введите id: ");
+        System.out.println("=== РЈРґР°Р»РµРЅРёРµ Р·Р°СЏРІРєРё ===");
+        int id = input.askInt("Р’РІРµРґРёС‚Рµ id: ");
         Item item = tracker.findById(id);
         tracker.delete(id);
-        System.out.println(item != null ? "Заявка удалена успешно." : "Ошибка удаления заявки.");
+        System.out.println(item != null ? "Р—Р°СЏРІРєР° СѓРґР°Р»РµРЅР° СѓСЃРїРµС€РЅРѕ." : "РћС€РёР±РєР° СѓРґР°Р»РµРЅРёСЏ Р·Р°СЏРІРєРё.");
     }
 
     public static void replaceItem(Input input, Tracker tracker) {
-        System.out.println("=== Редактирование заявки ===");
-        int id = input.askInt("Введите id: ");
-        String name = input.askStr("Введите имя: ");
+        System.out.println("=== Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·Р°СЏРІРєРё ===");
+        int id = input.askInt("Р’РІРµРґРёС‚Рµ id: ");
+        String name = input.askStr("Р’РІРµРґРёС‚Рµ РёРјСЏ: ");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
-            System.out.println("Заявка изменена успешно.");
+            System.out.println("Р—Р°СЏРІРєР° РёР·РјРµРЅРµРЅР° СѓСЃРїРµС€РЅРѕ.");
         } else {
-            System.out.println("Ошибка замены заявки.");
+            System.out.println("РћС€РёР±РєР° Р·Р°РјРµРЅС‹ Р·Р°СЏРІРєРё.");
         }
     }
 
     public static void findAllItems(Tracker tracker) {
-        System.out.println("=== Вывод всех заявок ===");
+        System.out.println("=== Р’С‹РІРѕРґ РІСЃРµС… Р·Р°СЏРІРѕРє ===");
         Item[] items = tracker.findAll();
         if (items.length > 0) {
             for (Item item : items) {
                 System.out.println(item);
             }
         } else {
-            System.out.println("Хранилище еще не содержит заявок");
+            System.out.println("РҐСЂР°РЅРёР»РёС‰Рµ РµС‰Рµ РЅРµ СЃРѕРґРµСЂР¶РёС‚ Р·Р°СЏРІРѕРє");
         }
     }
 
     public static void createItem(Input input, Tracker tracker) {
-        System.out.println("=== Создание новой заявки ===");
-        String name = input.askStr("Введите имя: ");
+        System.out.println("=== РЎРѕР·РґР°РЅРёРµ РЅРѕРІРѕР№ Р·Р°СЏРІРєРё ===");
+        String name = input.askStr("Р’РІРµРґРёС‚Рµ РёРјСЏ: ");
         Item item = new Item(name);
         tracker.add(item);
-        System.out.println("Добавленная заявка: " + item);
+        System.out.println("Р”РѕР±Р°РІР»РµРЅРЅР°СЏ Р·Р°СЏРІРєР°: " + item);
     }
 
 }

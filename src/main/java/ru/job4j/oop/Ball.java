@@ -3,9 +3,9 @@ package ru.job4j.oop;
 public class Ball {
     public void tryRun(boolean condition) {
         if (condition) {
-            System.out.println("колобок съеден");
+            System.out.println("РєРѕР»РѕР±РѕРє СЃСЉРµРґРµРЅ");
         } else {
-            System.out.println("колобок сбежал");
+            System.out.println("РєРѕР»РѕР±РѕРє СЃР±РµР¶Р°Р»");
         }
     }
 }
