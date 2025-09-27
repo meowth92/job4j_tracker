@@ -9,19 +9,19 @@ public class ReplaceAction implements UserAction {
 
     @Override
     public String name() {
-        return "РР·РјРµРЅРёС‚СЊ Р·Р°СЏРІРєСѓ";
+        return "Изменить заявку";
     }
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        output.println("=== Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р·Р°СЏРІРєРё ===");
-        int id = input.askInt("Р’РІРµРґРёС‚Рµ id: ");
-        String name = input.askStr("Р’РІРµРґРёС‚Рµ РёРјСЏ: ");
+        output.println("=== Редактирование заявки ===");
+        int id = input.askInt("Введите id: ");
+        String name = input.askStr("Введите имя: ");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
-            output.println("Р—Р°СЏРІРєР° РёР·РјРµРЅРµРЅР° СѓСЃРїРµС€РЅРѕ.");
+            output.println("Заявка изменена успешно.");
         } else {
-            output.println("РћС€РёР±РєР° Р·Р°РјРµРЅС‹ Р·Р°СЏРІРєРё.");
+            output.println("Ошибка замены заявки.");
         }
         return true;
     }

@@ -9,18 +9,18 @@ public class FindByIdAction implements UserAction {
 
     @Override
     public String name() {
-        return "РџРѕРєР°Р·Р°С‚СЊ Р·Р°СЏРІРєСѓ РїРѕ id";
+        return "Показать заявку по id";
     }
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        output.println("=== Р’С‹РІРѕРґ Р·Р°СЏРІРєРё РїРѕ id ===");
-        int id = input.askInt("Р’РІРµРґРёС‚Рµ id: ");
+        output.println("=== Вывод заявки по id ===");
+        int id = input.askInt("Введите id: ");
         Item item = tracker.findById(id);
         if (item != null) {
             output.println(item);
         } else {
-            output.println("Р—Р°СЏРІРєР° СЃ РІРІРµРґРµРЅРЅС‹Рј id: " + id + " РЅРµ РЅР°Р№РґРµРЅР°.");
+            output.println("Заявка с введенным id: " + id + " не найдена.");
         }
         return true;
     }

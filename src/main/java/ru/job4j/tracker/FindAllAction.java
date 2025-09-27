@@ -9,19 +9,19 @@ public class FindAllAction implements UserAction {
 
     @Override
     public String name() {
-        return "РџРѕРєР°Р·Р°С‚СЊ РІСЃРµ Р·Р°СЏРІРєРё";
+        return "Показать все заявки";
     }
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        output.println("=== Р’С‹РІРѕРґ РІСЃРµС… Р·Р°СЏРІРѕРє ===");
+        output.println("=== Вывод всех заявок ===");
         Item[] items = tracker.findAll();
         if (items.length > 0) {
             for (Item item : items) {
                 output.println(item);
             }
         } else {
-            output.println("РҐСЂР°РЅРёР»РёС‰Рµ РµС‰Рµ РЅРµ СЃРѕРґРµСЂР¶РёС‚ Р·Р°СЏРІРѕРє");
+            output.println("Хранилище еще не содержит заявок");
         }
         return true;
     }

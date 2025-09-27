@@ -9,20 +9,20 @@ public class FindByNameAction implements UserAction {
 
     @Override
     public String name() {
-        return "РџРѕРєР°Р·Р°С‚СЊ Р·Р°СЏРІРєРё РїРѕ РёРјРµРЅРё";
+        return "Показать заявки по имени";
     }
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        output.println("=== Р’С‹РІРѕРґ Р·Р°СЏРІРѕРє РїРѕ РёРјРµРЅРё ===");
-        String name = input.askStr("Р’РІРµРґРёС‚Рµ РёРјСЏ: ");
+        output.println("=== Вывод заявок по имени ===");
+        String name = input.askStr("Введите имя: ");
         Item[] items = tracker.findByName(name);
         if (items.length > 0) {
             for (Item item : items) {
                 output.println(item);
             }
         } else {
-            output.println("Р—Р°СЏРІРєРё СЃ РёРјРµРЅРµРј: " + name + " РЅРµ РЅР°Р№РґРµРЅС‹.");
+            output.println("Заявки с именем: " + name + " не найдены.");
         }
         return true;
     }

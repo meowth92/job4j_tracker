@@ -9,16 +9,16 @@ public class DeleteAction implements UserAction {
 
     @Override
     public String name() {
-        return "РЈРґР°Р»РёС‚СЊ Р·Р°СЏРІРєСѓ";
+        return "Удалить заявку";
     }
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        output.println("=== РЈРґР°Р»РµРЅРёРµ Р·Р°СЏРІРєРё ===");
-        int id = input.askInt("Р’РІРµРґРёС‚Рµ id: ");
+        output.println("=== Удаление заявки ===");
+        int id = input.askInt("Введите id: ");
         Item item = tracker.findById(id);
         tracker.delete(id);
-        output.println(item != null ? "Р—Р°СЏРІРєР° СѓРґР°Р»РµРЅР° СѓСЃРїРµС€РЅРѕ." : "РћС€РёР±РєР° СѓРґР°Р»РµРЅРёСЏ Р·Р°СЏРІРєРё.");
+        output.println(item != null ? "Заявка удалена успешно." : "Ошибка удаления заявки.");
         return true;
     }
 }
