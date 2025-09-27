@@ -12,9 +12,7 @@ class FindTest {
         int index = -3;
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> {
-                    Find.get(data, index);
-                }
+                () -> Find.get(data, index)
         );
         assertThat(exception.getMessage()).isEqualTo("Index out of bound");
     }
@@ -25,9 +23,7 @@ class FindTest {
         int index = 10;
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> {
-                    Find.get(data, index);
-                }
+                () -> Find.get(data, index)
         );
         assertThat(exception.getMessage()).isEqualTo("Index out of bound");
     }
@@ -38,9 +34,7 @@ class FindTest {
         int index = 3;
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> {
-                    Find.get(data, index);
-                }
+                () -> Find.get(data, index)
         );
         assertThat(exception.getMessage()).isEqualTo("Index out of bound");
     }
