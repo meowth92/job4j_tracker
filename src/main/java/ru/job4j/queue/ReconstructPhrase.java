@@ -5,7 +5,6 @@ import java.util.Deque;
 public class ReconstructPhrase {
 
     private final Deque<Character> descendingElements;
-
     private final Deque<Character> evenElements;
 
     public ReconstructPhrase(Deque<Character> descendingElements, Deque<Character> evenElements) {
